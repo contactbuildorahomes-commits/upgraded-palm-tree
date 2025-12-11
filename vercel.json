@@ -1,21 +1,16 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps --no-audit --no-fund",
-  "framework": null,
-  "outputDirectory": "build/client",
+  "outputDirectory": "dist",
   "functions": {
-    "build/server/index.js": {
-      "runtime": "nodejs20.x"
-    },
-    "build/server/**/*.js": {
+    "api/**.js": {
       "runtime": "nodejs20.x"
     }
   },
   "routes": [
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
-    { "src": "/google377430946836ecf2.html", "dest": "/google377430946836ecf2.html" },
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/build/server/index.js" }
+    {
+      "src": "/(.*)",
+      "dest": "/api/server.js"
+    }
   ]
 }
